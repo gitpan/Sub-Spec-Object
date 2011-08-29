@@ -1,0 +1,42 @@
+NAME
+    Sub::Spec::Object - Object-oriented interface for
+    sub/spec/request/response/etc
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+     use Sub::Spec::Object;
+
+     my $ssres = ssres [200, "OK", [1, 2, 3]];
+     print $ssres->is_success, # 1
+           $ssres->status,     # 200
+           $ssres->message,    # "OK"
+           $ssres->result;     # [1, 2, 3]
+
+     # TODO: ssspec
+     # TODO: ssreq
+     # TODO: sssub
+
+DESCRIPTION
+    Sub::Spec works using pure data structures, but sometimes it's
+    convenient to have an object-oriented interface for those data. This
+    module provides just that.
+
+FUNCTIONS
+  ssres $res => OBJECT
+    Exported by default. A shortcut for
+    Sub::Spec::Object::Response->new($res).
+
+SEE ALSO
+    Sub::Spec
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
