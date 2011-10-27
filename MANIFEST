@@ -8,7 +8,9 @@ README
 dist.ini
 lib/Sub/Spec/Object.pm
 lib/Sub/Spec/Object/Response.pm
+lib/Sub/Spec/Object/Spec.pm
 t/00-compile.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
 t/response.t
+t/spec.t

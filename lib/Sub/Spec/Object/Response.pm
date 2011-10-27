@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 require Exporter;
 our @ISA = qw(Exporter);
@@ -66,7 +66,7 @@ Sub::Spec::Object::Response - Represent sub response
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 

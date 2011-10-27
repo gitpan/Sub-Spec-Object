@@ -3,7 +3,7 @@ NAME
     sub/spec/request/response/etc
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
      use Sub::Spec::Object;
@@ -15,6 +15,11 @@ SYNOPSIS
            $ssres->result;     # [1, 2, 3]
 
      # TODO: ssspec
+     $SPEC{foo} = { features => { undo=>1 } };
+     my $ssspec = ssspec $SPEC{foo};
+     my $ssspec->feature('undo');    # 1
+     my $ssspec->feature('dry_run'); # ""
+
      # TODO: ssreq
      # TODO: sssub
 
@@ -24,9 +29,19 @@ DESCRIPTION
     module provides just that.
 
 FUNCTIONS
+  ssreq $req => OBJECT
+    Exported by default. A shortcut for
+    Sub::Spec::Object::Request->new($req).
+
   ssres $res => OBJECT
     Exported by default. A shortcut for
     Sub::Spec::Object::Response->new($res).
+
+  ssspec $spec => OBJECT
+    Exported by default. A shortcut for Sub::Spec::Object::Spec->new($spec).
+
+  sssub $sub => OBJECT
+    Exported by default. A shortcut for Sub::Spec::Object::Sub->new($sub).
 
 SEE ALSO
     Sub::Spec
