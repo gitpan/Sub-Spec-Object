@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 require Exporter;
 our @ISA = qw(Exporter);
@@ -25,7 +25,6 @@ sub feature {
         ${$self}->{features} //= {};
         my $old = ${$self}->{features}{$name};
         ${$self}->{features}{$name} = $value;
-        use Data::Dump; dd [ $name, ${$self}->{features}{$name}, $value];
         return $old;
     } else {
         ${$self}->{features}{$name};
@@ -59,7 +58,7 @@ Sub::Spec::Object::Spec - Represent sub spec
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
