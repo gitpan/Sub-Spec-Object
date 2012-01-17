@@ -4,7 +4,7 @@ use 5.010;
 use strict;
 use warnings;
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 require Exporter;
 our @ISA = qw(Exporter);
@@ -15,6 +15,11 @@ sub new {
     $spec //= {};
     my $obj = \$spec;
     bless $obj, $class;
+}
+
+sub spec_version {
+    my $self = shift;
+    ${$self}->{spec_version} // 1.0;
 }
 
 sub feature {
@@ -58,13 +63,17 @@ Sub::Spec::Object::Spec - Represent sub spec
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
  use Sub::Spec::Object::Response;
 
- $SPEC{foo} = { args => { b => 'int' }, features => {undo=>1} };
+ $SPEC{foo} = {
+     spec_version=>1.1,
+     args => { b => {schema=>'int'} },
+     features => {undo=>1},
+ };
  my $ssspec = ssspec $SPEC{foo};
  print $ssres->feature('undo'), # 1
        $ssres->arg('a');        # undef
@@ -99,7 +108,7 @@ Steven Haryanto <stevenharyanto@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2011 by Steven Haryanto.
+This software is copyright (c) 2012 by Steven Haryanto.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
